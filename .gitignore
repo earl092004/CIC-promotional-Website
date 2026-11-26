@@ -24,11 +24,6 @@
 /public/storage
 /storage/app/private/
 /storage/app/public/
-/storage/framework/cache/
-/storage/framework/sessions/
-/storage/framework/testing/
-/storage/framework/views/
-/storage/logs/
 /storage/*.key
 /storage/pail
 /vendor
