@@ -77,9 +77,11 @@ Railway's Railpack detects this Laravel app, installs Composer and npm dependenc
    - `DB_URL=${{Postgres.DATABASE_URL}}` (change `Postgres` if your database service has a different name)
    - `RAILPACK_PHP_EXTENSIONS=pdo_pgsql`
    - `LOG_CHANNEL=stderr`
-3. Generate an application key locally with `& "C:\tools\php84\php.exe" artisan key:generate --show`, then add its output as the Railway `APP_KEY` variable. Do not commit the key.
-4. Deploy, generate a public domain in the app service's **Settings → Networking**, then set `APP_URL` to that HTTPS domain and redeploy.
-5. Before accepting CMS uploads, attach a Railway volume to the app service at `/app/storage/app/private/media`. The CMS stores uploaded media on the local filesystem; without persistent storage, uploads can be lost when Railway replaces the container.
+3. Create a private Railway bucket and set `MEDIA_DISK_DRIVER=s3` plus its S3 credentials in the app service variables: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_DEFAULT_REGION`, `AWS_BUCKET`, `AWS_ENDPOINT`, and `AWS_USE_PATH_STYLE_ENDPOINT=false`. Keep the bucket private; media is served through the app's authorization-checked `/media` route.
+4. Generate an application key locally with `& "C:\tools\php84\php.exe" artisan key:generate --show`, then add its output as the Railway `APP_KEY` variable. Do not commit the key.
+5. Deploy, generate a public domain in the app service's **Settings → Networking**, then set `APP_URL` to that HTTPS domain and redeploy.
 6. Create the first CMS user from the Railway service shell with `php artisan make:filament-user`. New users default to the Contributor role. To promote the intended administrator, run `php artisan tinker --execute='App\Models\User::where("email", "YOUR_ADMIN_EMAIL")->update(["role" => App\Models\User::ROLE_ADMINISTRATOR]);'` with that user's email.
 
 Railway's new PostgreSQL database starts empty: it does not import content, CMS users, or uploaded files from the local SQLite database. Do not run `php artisan db:seed` in production; the current seeder creates a test user. Migrate existing site content and media separately if they need to appear on the live site. Keep `.env` and local SQLite data out of GitHub.
+
+The Railway Free plan may sleep services when idle and stop them after its usage credit is exhausted; it is not guaranteed always-on hosting.

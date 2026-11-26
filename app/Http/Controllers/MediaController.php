@@ -6,13 +6,12 @@ use App\Models\Article;
 use App\Models\MediaAsset;
 use App\Models\Program;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class MediaController extends Controller
 {
-    public function show(Request $request, string $path): Response|BinaryFileResponse
+    public function show(Request $request, string $path): StreamedResponse
     {
         abort_if(str_contains($path, '..') || str_starts_with($path, '/') || str_contains($path, '\\'), 404);
 
@@ -21,7 +20,16 @@ class MediaController extends Controller
 
         abort_unless($this->isPublicPath($path), 404);
 
-        return response()->file($disk->path($path), [
+        $stream = $disk->readStream($path);
+        abort_unless(is_resource($stream), 404);
+
+        return response()->stream(static function () use ($stream): void {
+            try {
+                fpassthru($stream);
+            } finally {
+                fclose($stream);
+            }
+        }, 200, [
             'Content-Type' => $disk->mimeType($path) ?: 'application/octet-stream',
             'Cache-Control' => 'public, max-age=3600',
             'X-Content-Type-Options' => 'nosniff',

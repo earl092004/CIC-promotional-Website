@@ -50,6 +50,8 @@ class MediaAssetTest extends TestCase
 
         $this->get(route('media.show', ['path' => 'gallery/visible.png']))
             ->assertOk()
+            ->assertStreamed()
+            ->assertStreamedContent('visible')
             ->assertHeader('X-Content-Type-Options', 'nosniff');
         $this->get(route('media.show', ['path' => 'gallery/private.png']))
             ->assertNotFound();
