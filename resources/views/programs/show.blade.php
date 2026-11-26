@@ -14,7 +14,7 @@
             <section class="bg-cic-blue-dark text-white">
                 <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24">
                     <p class="text-sm font-bold uppercase tracking-[0.2em] text-cic-cyan">Program preview</p>
-                    <h1 class="cic-display mt-4 max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl">{{ $program->name }}</h1>
+                    <h1 class="cic-display mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">{{ $program->name }}</h1>
                     <p class="mt-6 max-w-3xl text-lg leading-8 text-blue-100">{{ $program->overview }}</p>
                 </div>
             </section>

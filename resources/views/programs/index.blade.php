@@ -57,7 +57,7 @@
             <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-24">
                 <div class="rounded-[2rem] bg-cic-blue-dark p-8 text-white sm:p-12">
                     <p class="text-sm font-bold uppercase tracking-[0.2em] text-cic-cyan">Official updates</p>
-                    <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Follow CIC for announcements.</h2>
+                    <h2 class="mt-3 text-2xl font-semibold tracking-tight sm:text-4xl">Follow CIC for announcements.</h2>
                     <p class="mt-4 max-w-2xl leading-7 text-blue-100">For the latest enrollment announcements and official updates, visit the City of Ilagan College Facebook page.</p>
                     <a class="cic-action mt-7 inline-flex rounded-full border border-cic-cyan px-6 py-3.5 font-bold text-white" href="https://www.facebook.com/cityofilagancollege" target="_blank" rel="noopener noreferrer">Visit official Facebook page <span class="ml-2" aria-hidden="true">↗</span></a>
                 </div>

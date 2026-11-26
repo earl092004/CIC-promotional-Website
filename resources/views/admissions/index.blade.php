@@ -17,7 +17,7 @@
                 <div class="absolute -bottom-48 -left-24 size-[30rem] rounded-full bg-cic-cyan/15 blur-3xl" aria-hidden="true"></div>
                 <div class="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
                     <p class="cic-eyebrow text-cic-cyan">Admissions</p>
-                    <h1 class="cic-display mt-4 max-w-4xl text-5xl font-semibold tracking-tight sm:text-6xl">Your next chapter starts with a conversation.</h1>
+                    <h1 class="cic-display mt-4 max-w-4xl text-4xl font-semibold tracking-tight sm:text-6xl">Your next chapter starts with a conversation.</h1>
                     <p class="mt-6 max-w-2xl text-lg leading-8 text-blue-100">This page is ready for CIC's verified enrollment process, requirements, schedules, and official admissions contacts.</p>
                     <div class="mt-8 flex max-w-2xl items-start gap-3 rounded-2xl border border-cic-yellow/60 bg-cic-yellow/10 px-5 py-4 text-sm font-semibold text-cic-yellow">
                         <span class="grid size-6 shrink-0 place-items-center rounded-full bg-cic-yellow text-xs font-black text-cic-blue-dark" aria-hidden="true">!</span>

@@ -26,7 +26,7 @@
             <a class="cic-nav-link hidden rounded px-1 sm:inline {{ request()->routeIs('gallery.*') ? 'text-cic-blue' : '' }}" href="{{ route('gallery.index') }}" @if (request()->routeIs('gallery.*')) aria-current="page" @endif>Gallery</a>
             <a class="cic-action rounded-full bg-cic-blue px-4 py-2.5 text-white sm:px-5" href="{{ route('contact.index') }}" data-analytics-event="contact_cta">Contact CIC <span class="ml-1" aria-hidden="true">→</span></a>
         </nav>
-        <button class="cic-action rounded-full border border-cic-blue px-4 py-2 text-sm font-semibold text-cic-blue lg:hidden" type="button" aria-controls="public-mobile-menu" aria-expanded="false" data-mobile-menu-toggle>
+        <button class="cic-action min-h-11 rounded-full border border-cic-blue px-4 py-2 text-sm font-semibold text-cic-blue lg:hidden" type="button" aria-controls="public-mobile-menu" aria-expanded="false" data-mobile-menu-toggle>
             <span data-mobile-menu-label>Menu</span>
         </button>
     </div>

@@ -15,7 +15,7 @@
             <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
                 <article class="min-w-0">
             <p class="text-sm font-bold uppercase tracking-[0.2em] text-cic-blue">{{ str($article->type)->headline() }}</p>
-            <h1 class="cic-display mt-5 text-5xl font-semibold tracking-tight text-cic-blue-dark text-balance sm:text-6xl">{{ $article->title }}</h1>
+            <h1 class="cic-display mt-5 text-4xl font-semibold tracking-tight text-cic-blue-dark text-balance sm:text-6xl">{{ $article->title }}</h1>
             <p class="mt-5 text-sm text-slate-500">Published {{ $article->published_at?->format('F j, Y') }} · By {{ $article->author->name }} · {{ $article->readingTimeMinutes() }} min read</p>
             @if ($article->cover_image_path)
                 <img class="mt-12 max-h-[34rem] w-full rounded-3xl object-cover shadow-xl" src="{{ route('media.show', ['path' => $article->cover_image_path]) }}" alt="{{ $article->cover_image_alt ?: $article->title }}">
